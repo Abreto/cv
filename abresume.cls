@@ -192,3 +192,14 @@
 {
     \end{cvlist}
 }
+
+\newcommand{\cvtblpair}[2]{%
+{#1} & {#2} \\[2pt]
+}
+\newenvironment{cvtbl}
+{
+    \begin{tabular}{>{\itshape}rl}
+}
+{
+    \end{tabular}
+}
