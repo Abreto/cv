@@ -4,40 +4,114 @@
 \LoadClass[a4paper,11pt,oneside]{article}
 \RequirePackage[left=1in, right=1in, bottom=1.25in, top=1.25in]{geometry}
 
+\DeclareOption{withphoto}{\def\@withphoto{}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+
 \RequirePackage[parfill]{parskip} % Remove paragraph indentation
 \RequirePackage{array} % Required for boldface (\bf and \bfseries) tabular columns
 \RequirePackage{ifthen} % Required for ifthenelse statements
-% \RequirePackage[pdftex, hidelinks]{hyperref}
+\RequirePackage[xetex, hidelinks]{hyperref}
+
+\RequirePackage{graphicx}
+\graphicspath{ {images/} }
 
 \RequirePackage{xcolor}
-\definecolor{mygray}{gray}{0.6}
 
 % No page numbers
 % \pagenumbering{gobble}
 \pagestyle{empty} % Suppress page numbers
 
+\RequirePackage{fontspec}
+\setmainfont{Palatino}[
+    SmallCapsFont={Palatino SC}
+]
+
+% \RequirePackage{pxfonts}
+% \RequirePackage{sourcecodepro}
 
 %----------------------------------------------------------------------------------------
 %	HEADINGS COMMANDS: Commands for printing name, email, phone and face
 %----------------------------------------------------------------------------------------
 
-\newcommand{\firstname}[1]{\renewcommand{\@firstname}{#1}}
+\newcommand*{\name}[2]{
+    \renewcommand{\@firstname}{#1}
+    \renewcommand{\@lastname}{#2}
+}
 \newcommand{\@firstname}{}
-\newcommand{\lastname}[1]{\renewcommand{\@lastname}{#1}}
 \newcommand{\@lastname}{}
 \newcommand{\fullname}{\@firstname~\textsc{\@lastname}}
 
-\newcommand{\phone}[1]{\renewcommand{\@phone}{#1}} % Defines the \phone command to set phone
+\newcommand*{\phone}[1]{\renewcommand{\@phone}{#1}} % Defines the \phone command to set phone
 \newcommand{\@phone}{} % Sets \@phone to empty by default
 
-\newcommand{\email}[1]{\renewcommand{\@email}{#1}}
+\newcommand*{\email}[1]{\renewcommand{\@email}{#1}}
 \newcommand{\@email}{}
 
-\renewcommand{\maketitle}{%
-    \begin{center}
-        {\LARGE \fullname} \\
-        {\small \textcolor{mygray}{\emph{Curriculum Vit\ae}}}
-    \end{center}
+\newcommand*{\homepage}[2]{
+    \renewcommand{\@homepageurl}{#1}
+    \renewcommand{\@homepagetil}{#2}
+}
+\newcommand{\@homepageurl}{}
+\newcommand{\@homepagetil}{}
+
+\newcommand*{\face}[1]{\renewcommand{\@face}{#1}}
+\newcommand{\@face}{}
+
+
+\RequirePackage{tabularx}
+\RequirePackage{multirow}
+\RequirePackage{fontawesome} % icons
+\definecolor{cvgray}{gray}{0.7}
+\definecolor{nameblue}{HTML}{004d99}
+% \RequirePackage[T1]{fontenc}
+\newcommand{\abcvHeaderNameSty}[1]{{\textcolor{nameblue}{{#1}}}}
+\newcommand{\testline}{}
+\newcommand{\abcvHeaderIconSep}{~}
+\newcommand*{\abcvHeaderItemSty}[1]{\textcolor{cvgray}{\texttt{#1}}}
+\newcommand{\makecvheader}{%
+    % \begin{center}
+    %     {\LARGE \fullname} \\
+    %     {\small \textcolor{cvgray}{\emph{Curriculum Vit\ae}}}
+    % \end{center}
     % \hrule
-    \normalsize
+    % \begin{tabularx}{\textwidth}{c>{\raggedleft\arraybackslash}X} \testline
+    %     \multirow{8}{*}{
+    %         % \parbox[c][35mm]{25mm}{
+    %         % Standard 1-inch photo
+    %         \includegraphics[width=25mm,height=35mm]{\@face}
+    %         % }
+    %     }
+    %         & {\LARGE \fullname} \\[0pt]\testline
+    %         & {\small \textcolor{cvgray}{\emph{Curriculum Vit\ae}}} \\[0pt]\testline
+    %         \\[0pt]\testline
+    %         & {\faMobilePhone\abcvHeaderIconSep\abcvHeaderItemSty{\@phone}}\\[0pt]\testline
+    %         & {\faEnvelopeO\abcvHeaderIconSep\href{mailto:\@email}{\abcvHeaderItemSty{\@email}}} \\[0pt]\testline
+    %         & {\faGlobe\abcvHeaderIconSep\href{\@homepageurl}{\abcvHeaderItemSty{\@homepagetil}}}\\[0pt]\testline
+    %         \\[0pt]\testline
+    %         \\[0pt]\testline
+    %         \\[0pt]\testline
+    % \end{tabularx}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}Xr} \testline
+        {\LARGE \abcvHeaderNameSty{\fullname}}
+            \ifthenelse{\isundefined{\@withphoto}}
+            {}
+            {
+                & \multirow{8}{*}{
+                % \parbox[c][35mm]{25mm}{
+                % Standard 1-inch photo
+                \includegraphics[width=25mm,height=35mm]{\@face}
+                % }
+                }
+            } \\[0pt]\testline
+        {\small \textcolor{cvgray}{\textit{Curriculum Vit\ae}}} \\[0pt]\testline
+        \\[0pt]\testline
+        % {\faPhone\abcvHeaderIconSep\abcvHeaderItemSty{\@phone}}\\[0pt]\testline
+        {\abcvHeaderItemSty{\faEnvelopeO\abcvHeaderIconSep}\href{mailto:\@email}{\abcvHeaderItemSty{\@email}}} %\\[0pt]\testline
+        \abcvHeaderItemSty{$\;\bullet\;$} {\abcvHeaderItemSty{\faGlobe\abcvHeaderIconSep}\href{\@homepageurl}{\abcvHeaderItemSty{\@homepagetil}}}\\[0pt]\testline
+        \\[0pt]\testline
+        \\[0pt]\testline
+        \\[0pt]\testline
+        \\[0pt]\testline
+    \end{tabularx}
 }
