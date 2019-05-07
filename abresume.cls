@@ -108,7 +108,7 @@
         \\[0pt]\testline
         % {\faPhone\abcvHeaderIconSep\abcvHeaderItemSty{\@phone}}\\[0pt]\testline
         {\abcvHeaderItemSty{\faEnvelopeO\abcvHeaderIconSep}\href{mailto:\@email}{\abcvHeaderItemSty{\@email}}} %\\[0pt]\testline
-        \abcvHeaderItemSty{$\;\bullet\;$} {\abcvHeaderItemSty{\faGlobe\abcvHeaderIconSep}\href{\@homepageurl}{\abcvHeaderItemSty{\@homepagetil}}}\\[0pt]\testline
+        \abcvHeaderItemSty{$\;\;\bullet\;\;$} {\abcvHeaderItemSty{\faGlobe\abcvHeaderIconSep}\href{\@homepageurl}{\abcvHeaderItemSty{\@homepagetil}}}\\[0pt]\testline
         \\[0pt]\testline
         \ifthenelse{\isundefined{\@withphoto}}{}
         {
@@ -136,7 +136,7 @@
 \setlist[itemize,2]{label=\abcvBlue{$\circ$}}
 \newenvironment{cvlist}
 {
-    \begin{itemize}[topsep=0pt, leftmargin=1.0em, nosep]
+    \begin{itemize}[topsep=0pt, leftmargin=1.0em, itemsep=2pt, parsep=1pt]
 }
 {
     \end{itemize}
@@ -171,11 +171,22 @@
     \def\@abcveduitemperiod{\textit{#3}~-~\textit{#4}}
     \setlength{\@abcvlenofcity}{\widthof{\@abcveduitemcity}}
     \setlength{\@abcvlenofprid}{\widthof{\@abcveduitemperiod}}
+    \smallskip
     \textbf{#1} {\hspace*{\fill} \raggedright {\parbox[t][2em]{\maxof{\@abcvlenofcity}{\@abcvlenofprid}}{\hfill \@abcveduitemcity \\ \hfill \@abcveduitemperiod}}}\\
     \vspace*{-1.5em}
     \begin{cvlist}
 }
 {
     \end{cvlist}
-    \smallskip
+}
+
+\newcommand{\awardentry}[2]{%
+\item {#1}. \textit{#2}.
+}
+\newenvironment{awardentries}
+{
+    \begin{cvlist}
+}
+{
+    \end{cvlist}
 }
