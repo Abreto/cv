@@ -11,12 +11,14 @@
 \RequirePackage[parfill]{parskip} % Remove paragraph indentation
 \RequirePackage{array} % Required for boldface (\bf and \bfseries) tabular columns
 \RequirePackage{ifthen} % Required for ifthenelse statements
-\RequirePackage[xetex, hidelinks]{hyperref}
+\RequirePackage{xcolor}
+\definecolor{linkblue}{HTML}{0099ff}
+% \RequirePackage[xetex, hidelinks]{hyperref}
+\RequirePackage[xetex, colorlinks=true, allcolors={linkblue}]{hyperref}
 
 \RequirePackage{graphicx}
 \graphicspath{ {images/} }
 
-\RequirePackage{xcolor}
 
 % No page numbers
 % \pagenumbering{gobble}
