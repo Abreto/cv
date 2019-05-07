@@ -170,7 +170,9 @@
     %    \hfill \textit{#3}-\textit{#4}
     % \end{flushright}
     \def\@abcveduitemcity{\textbf{#2}}
-    \def\@abcveduitemperiod{\textit{#3}~-~\textit{#4}}
+    \ifthenelse{\equal{#4}{}}
+        {\def\@abcveduitemperiod{\textit{#3}}}
+        {\def\@abcveduitemperiod{\textit{#3}~-~\textit{#4}}}
     \setlength{\@abcvlenofcity}{\widthof{\@abcveduitemcity}}
     \setlength{\@abcvlenofprid}{\widthof{\@abcveduitemperiod}}
     \smallskip
