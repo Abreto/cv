@@ -2,7 +2,7 @@ DIST=cv
 JOBNAME=main
 TEX=xelatex
 ENTRYFILE=$(JOBNAME).tex
-SRC=$(ENTRYFILE) abresume.cls
+SRC=$(ENTRYFILE) abresume.cls resume/*
 TMP=$(JOBNAME).{aux,log,pdf}
 
 all: $(JOBNAME).pdf

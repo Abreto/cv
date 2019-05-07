@@ -1,8 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{abresume}[2010/05/07 v0.1 abResume LaTeX class]
 
-\LoadClass[a4paper,11pt,oneside]{article}
-\RequirePackage[left=1in, right=1in, bottom=1.25in, top=1.25in]{geometry}
+\LoadClass[a4paper,10pt,oneside]{article}
+\RequirePackage[left=0.75in, right=0.75in, bottom=1in, top=1in]{geometry}
 
 \DeclareOption{withphoto}{\def\@withphoto{}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -93,7 +93,7 @@
     %         \\[0pt]\testline
     % \end{tabularx}
     \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}Xr} \testline
-        {\LARGE \abcvHeaderNameSty{\fullname}}
+        {\huge \abcvHeaderNameSty{\fullname}}
             \ifthenelse{\isundefined{\@withphoto}}
             {}
             {
@@ -103,15 +103,59 @@
                 \includegraphics[width=25mm,height=35mm]{\@face}
                 % }
                 }
-            } \\[0pt]\testline
+            } \\[1pt]\testline
         {\small \textcolor{cvgray}{\textit{Curriculum Vit\ae}}} \\[0pt]\testline
         \\[0pt]\testline
         % {\faPhone\abcvHeaderIconSep\abcvHeaderItemSty{\@phone}}\\[0pt]\testline
         {\abcvHeaderItemSty{\faEnvelopeO\abcvHeaderIconSep}\href{mailto:\@email}{\abcvHeaderItemSty{\@email}}} %\\[0pt]\testline
         \abcvHeaderItemSty{$\;\bullet\;$} {\abcvHeaderItemSty{\faGlobe\abcvHeaderIconSep}\href{\@homepageurl}{\abcvHeaderItemSty{\@homepagetil}}}\\[0pt]\testline
         \\[0pt]\testline
-        \\[0pt]\testline
-        \\[0pt]\testline
-        \\[0pt]\testline
+        \ifthenelse{\isundefined{\@withphoto}}{}
+        {
+            \\[0pt]\testline
+            \\[0pt]\testline
+            \\[0pt]\testline
+        }
     \end{tabularx}
+}
+
+\definecolor{abcvblue}{HTML}{004d99}
+\newcommand{\abcvBlue}[1]{\textcolor{abcvblue}{{#1}}}
+
+\def\sectionskip{\medskip}
+\def\sectionlineskip{\medskip}
+\newcommand{\cvsection}[1]{
+    \sectionskip
+    {\Large \textsc{\abcvBlue{#1}}}
+    \sectionlineskip
+    \abcvBlue{\hrule} % Horizontal line
+}
+
+\RequirePackage{enumitem}
+\setlist[itemize,1]{label=\abcvBlue{\textbullet}}
+\setlist[itemize,2]{label=\abcvBlue{$\circ$}}
+\newenvironment{cvlist}
+{
+    \begin{itemize}[topsep=0pt, leftmargin=1.0em, nosep]
+}
+{
+    \end{itemize}
+}
+
+\newenvironment{eduitem}[4]
+{
+    % \textbf{{#1} \hfill {#2}} \\
+    % \begin{flushright}
+    %    \hfill \textit{#3}-\textit{#4}
+    % \end{flushright}
+    \def\@eduitem@t{#3}
+    \def\@eduitem@f{#4}
+    \tabularx{\textwidth}{Xr}%\hline
+        \textbf{#1} & \textbf{#2} \\[0pt]%\hline
+        \begin{cvlist}
+}
+{
+    \end{cvlist} & \textit{\@eduitem@t}~-~\textit{\@eduitem@f} \\%\hline
+    \endtabularx
+    % \smallskip
 }
