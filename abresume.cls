@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abresume}[2010/05/07 v0.1 abResume LaTeX class]
+\ProvidesClass{abresume}[2019/05/07 v0.1 abResume LaTeX class]
 
 \LoadClass[a4paper,10pt,oneside]{article}
 \RequirePackage[left=0.75in, right=0.75in, bottom=1in, top=1in]{geometry}
