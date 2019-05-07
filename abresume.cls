@@ -142,20 +142,40 @@
     \end{itemize}
 }
 
+% \newenvironment{eduitem}[4]
+% {
+%     % \textbf{{#1} \hfill {#2}} \\
+%     % \begin{flushright}
+%     %    \hfill \textit{#3}-\textit{#4}
+%     % \end{flushright}
+%     \def\@eduitem@t{#3}
+%     \def\@eduitem@f{#4}
+%     \tabularx{\textwidth}{Xr}%\hline
+%         \textbf{#1} & \textbf{#2} \\[0pt]%\hline
+%         \begin{cvlist}
+% }
+% {
+%     \end{cvlist} & \textit{\@eduitem@t}~-~\textit{\@eduitem@f} \\%\hline
+%     \endtabularx
+%     % \smallskip
+% }
+\RequirePackage{calc}
+\newlength{\@abcvlenofcity}\newlength{\@abcvlenofprid}
 \newenvironment{eduitem}[4]
 {
     % \textbf{{#1} \hfill {#2}} \\
     % \begin{flushright}
     %    \hfill \textit{#3}-\textit{#4}
     % \end{flushright}
-    \def\@eduitem@t{#3}
-    \def\@eduitem@f{#4}
-    \tabularx{\textwidth}{Xr}%\hline
-        \textbf{#1} & \textbf{#2} \\[0pt]%\hline
-        \begin{cvlist}
+    \def\@abcveduitemcity{\textbf{#2}}
+    \def\@abcveduitemperiod{\textit{#3}~-~\textit{#4}}
+    \setlength{\@abcvlenofcity}{\widthof{\@abcveduitemcity}}
+    \setlength{\@abcvlenofprid}{\widthof{\@abcveduitemperiod}}
+    \textbf{#1} {\hspace*{\fill} \raggedright {\parbox[t][2em]{\maxof{\@abcvlenofcity}{\@abcvlenofprid}}{\hfill \@abcveduitemcity \\ \hfill \@abcveduitemperiod}}}\\
+    \vspace*{-1.5em}
+    \begin{cvlist}
 }
 {
-    \end{cvlist} & \textit{\@eduitem@t}~-~\textit{\@eduitem@f} \\%\hline
-    \endtabularx
-    % \smallskip
+    \end{cvlist}
+    \smallskip
 }
