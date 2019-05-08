@@ -13,6 +13,7 @@
 \RequirePackage{ifthen} % Required for ifthenelse statements
 \RequirePackage{xcolor}
 \definecolor{linkblue}{HTML}{0099ff}
+\definecolor{emphred}{HTML}{990000}
 % \RequirePackage[xetex, hidelinks]{hyperref}
 \RequirePackage[xetex, colorlinks=true, allcolors={linkblue}]{hyperref}
 
