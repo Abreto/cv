@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{abresume}[2019/05/07 v0.1 abResume LaTeX class]
 
-\LoadClass[a4paper,10pt,oneside]{article}
+\LoadClass[a4paper,10.5pt,oneside]{article}
 \RequirePackage[left=0.75in, right=0.75in, bottom=1in, top=1in]{geometry}
 
 \DeclareOption{withphoto}{\def\@withphoto{}}
@@ -213,7 +213,7 @@
 \newenvironment{projitem}[4] % Project name, Role[, start, end]
 {
     \textbf{#1} \\
-    \hspace*{1em} \abcvRoleSty{#2} \hfill \textit{#3}\ifthenelse{\equal{#4}{}}{}{~-~\textit{#4}} \\
+    \hspace*{1em} \abcvRoleSty{#2} \hfill \textit{#3}\ifthenelse{\equal{#4}{}}{}{~-~\textit{#4}} \\[1pt]
     \vspace*{-1.5em}
     \begin{cvlist}
 }
