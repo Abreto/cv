@@ -1,3 +1,33 @@
 \cvsection{Knowledge and Courses}
 
+\newcommand{\levelentry}[1]{\item \textbf{#1}}
+\newenvironment{cvcourses}
+{
+    \begin{cvlist}\item\small
+}
+{
+    \normalsize\end{cvlist}
+}
+
+\begin{cvlist}
+    \levelentry{Mathematics and Physics}
+    % \begin{cvlist}
+    %     \item {\small Mathematical Analysis, Quantum Mechincs}
+    % \end{cvlist}
+    \begin{cvcourses}
+        Mathematical Analysis, Quantum Mechincs
+    \end{cvcourses}
+
+    \levelentry{Solid}
+    \begin{cvcourses}
+        Course 1, Course 2, Course 3, ...
+    \end{cvcourses}
+    
+    \levelentry{Micro}
+    \begin{cvcourses}
+        Course I, Course II, Course III, ...
+    \end{cvcourses}
+
+\end{cvlist}
+
 \endinput
