@@ -206,3 +206,13 @@
 {
     \end{tabular}
 }
+
+%%%%%%%%%%%%%%%% Experience %%%%%%%%%%%%%%%%%
+\newenvironment{expitem}[5] % Project name, Role[, Location, start, end]
+{
+    
+    \begin{cvlist}
+}
+{
+    \end{cvlist}
+}
