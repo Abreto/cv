@@ -130,8 +130,9 @@
 \newcommand{\cvsection}[1]{
     \sectionskip
     {\Large \textsc{\abcvBlue{#1}}}
-    \sectionlineskip
+    \nopagebreak\sectionlineskip
     \abcvBlue{\hrule} % Horizontal line
+    \nopagebreak
 }
 
 \RequirePackage{enumitem}
