@@ -164,7 +164,7 @@
 % }
 \RequirePackage{calc}
 \newlength{\@abcvlenofcity}\newlength{\@abcvlenofprid}
-\newenvironment{eduitem}[4]
+\newenvironment{eduitem}[4] % Name, Location, Start[, End]
 {
     % \textbf{{#1} \hfill {#2}} \\
     % \begin{flushright}
@@ -208,9 +208,12 @@
 }
 
 %%%%%%%%%%%%%%%% Experience %%%%%%%%%%%%%%%%%
-\newenvironment{expitem}[5] % Project name, Role[, Location, start, end]
+\newcommand{\abcvRoleSty}[1]{\textit{#1}}
+\newenvironment{projitem}[4] % Project name, Role[, start, end]
 {
-    
+    \textbf{#1} \\
+    \hspace*{1em} \abcvRoleSty{#2} \hfill \textit{#3}\ifthenelse{\equal{#4}{}}{}{~-~\textit{#4}} \\
+    \vspace*{-1.5em}
     \begin{cvlist}
 }
 {
