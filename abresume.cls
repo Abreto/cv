@@ -111,7 +111,8 @@
         \\[0pt]\testline
         % {\faPhone\abcvHeaderIconSep\abcvHeaderItemSty{\@phone}}\\[0pt]\testline
         {\abcvHeaderItemSty{\faEnvelopeO\abcvHeaderIconSep}\href{mailto:\@email}{\abcvHeaderItemSty{\@email}}} %\\[0pt]\testline
-        \abcvHeaderItemSty{$\;\;\bullet\;\;$} {\abcvHeaderItemSty{\faGlobe\abcvHeaderIconSep}\href{\@homepageurl}{\abcvHeaderItemSty{\@homepagetil}}}\\[0pt]\testline
+        \ifthenelse{\equal{\@homepageurl}{}}{}
+        {\abcvHeaderItemSty{$\;\;\bullet\;\;$} {\abcvHeaderItemSty{\faGlobe\abcvHeaderIconSep}\href{\@homepageurl}{\abcvHeaderItemSty{\@homepagetil}}}}\\[0pt]\testline
         \\[0pt]\testline
         \ifthenelse{\isundefined{\@withphoto}}{}
         {
