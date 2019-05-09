@@ -5,8 +5,6 @@
 \usepackage[english]{babel}
 
 \name{Xuandeng}{Fu}
-% \name{Jingyun}{Yang}
-\phone{+86~18980698083}
 \email{abreto@std.uestc.edu.cn}
 \homepage{https://www.abreto.net}{abreto.net}
 \face{face.jpg} % Relative to images/, needed if 'withphoto' option is on
@@ -23,5 +21,14 @@
 \input{resume/skills}
 \input{resume/experience}
 \input{resume/links}
+
+% \footnotetext{The source code of this CV is available on \url{https://github.com/Abreto/cv}}
+\begingroup
+  \renewcommand\thefootnote{}\footnote{
+      The source code of this CV is available on \url{https://github.com/Abreto/cv}
+      and everyone is welcome to use my template.
+    }%
+  \addtocounter{footnote}{-1}%
+\endgroup
 
 \end{document}
