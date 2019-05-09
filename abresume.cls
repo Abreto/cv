@@ -179,7 +179,8 @@
     \setlength{\@abcvlenofcity}{\widthof{\@abcveduitemcity}}
     \setlength{\@abcvlenofprid}{\widthof{\@abcveduitemperiod}}
     \smallskip
-    \textbf{#1} {\hspace*{\fill} \raggedright {\parbox[t][2em]{\maxof{\@abcvlenofcity}{\@abcvlenofprid}}{\hfill \@abcveduitemcity \\ \hfill \@abcveduitemperiod}}}\\
+    \textbf{#1} 
+    {\hspace*{\fill} \raggedright {\parbox[t][2em]{\maxof{\@abcvlenofcity}{\@abcvlenofprid}}{\hfill\raggedright \@abcveduitemcity \\ \hfill\raggedright \@abcveduitemperiod \\[0pt]}}}\\
     \vspace*{-1.5em}
     \begin{cvlist}
 }
