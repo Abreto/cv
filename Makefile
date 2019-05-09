@@ -9,6 +9,7 @@ all: $(JOBNAME).pdf
 
 $(JOBNAME).pdf: $(SRC)
 	$(TEX) $(ENTRYFILE)
+	$(TEX) $(ENTRYFILE)
 
 install:
 	cp $(JOBNAME).pdf $(DIST).pdf

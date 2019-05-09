@@ -15,7 +15,8 @@
 \definecolor{linkblue}{HTML}{0099ff}
 \definecolor{emphred}{HTML}{990000}
 % \RequirePackage[xetex, hidelinks]{hyperref}
-\RequirePackage[xetex, colorlinks=true, allcolors={linkblue}]{hyperref}
+% \RequirePackage[xetex, colorlinks=true, allcolors={linkblue}]{hyperref}
+\RequirePackage[xetex, colorlinks=true, urlcolor={linkblue}, linkcolor={black}]{hyperref}
 
 \RequirePackage{graphicx}
 \graphicspath{ {images/} }
@@ -23,7 +24,14 @@
 
 % No page numbers
 % \pagenumbering{gobble}
-\pagestyle{empty} % Suppress page numbers
+% \pagestyle{empty} % Suppress page numbers
+\RequirePackage{lastpage}
+\RequirePackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage\ / \textcolor{black}{\pageref{LastPage}}}
+\pagestyle{fancy}
 
 \RequirePackage{fontspec}
 \setmainfont{Palatino}[
