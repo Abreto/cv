@@ -73,7 +73,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{multirow}
 \RequirePackage{fontawesome} % icons
-\definecolor{cvgray}{gray}{0.8}
+\definecolor{cvgray}{gray}{0.5}
 \definecolor{nameblue}{HTML}{004d99}
 % \RequirePackage[T1]{fontenc}
 \newcommand{\abcvHeaderNameSty}[1]{{\textcolor{nameblue}{{#1}}}}
