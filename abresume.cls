@@ -2,11 +2,11 @@
 \ProvidesClass{abresume}[2019/05/07 v0.1 abResume LaTeX class]
 
 \LoadClass[a4paper,10.5pt,oneside]{article}
-\RequirePackage[left=0.75in, right=0.75in, bottom=1in, top=1in]{geometry}
+\RequirePackage[left=0.75in, right=0.75in, bottom=1in, top=1in]{geometry} %usepackage
 
-\DeclareOption{withphoto}{\def\@withphoto{}}
+\DeclareOption{withphoto}{\def\@withphoto{}} % 头像
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-\ProcessOptions\relax
+\ProcessOptions\relax % 文档类参数处理完毕
 
 \RequirePackage[parfill]{parskip} % Remove paragraph indentation
 \RequirePackage{array} % Required for boldface (\bf and \bfseries) tabular columns
@@ -26,10 +26,10 @@
 % \pagenumbering{gobble}
 % \pagestyle{empty} % Suppress page numbers
 \RequirePackage{lastpage}
-\RequirePackage{fancyhdr}
+\RequirePackage{fancyhdr} % 页眉页脚
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead{}
-\fancyfoot[C]{}
+\fancyfoot[C]{} 
 \fancyfoot[R]{\thepage\ / \textcolor{black}{\pageref{LastPage}}}
 \pagestyle{fancy}
 
