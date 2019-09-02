@@ -51,7 +51,8 @@
 }
 \newcommand{\@firstname}{}
 \newcommand{\@lastname}{}
-\newcommand{\fullname}{\@firstname~\textsc{\@lastname}}
+% \newcommand{\fullname}{\@firstname~\textsc{\@lastname}}
+\newcommand{\fullname}{\@lastname\@firstname}
 
 \newcommand*{\phone}[1]{\renewcommand{\@phone}{#1}} % Defines the \phone command to set phone
 \newcommand{\@phone}{} % Sets \@phone to empty by default
@@ -115,7 +116,7 @@
                 % }
                 }
             } \\[1pt]\testline
-        {\small \textcolor{cvgray}{\textit{Curriculum Vit\ae}}} \\[0pt]\testline
+        {\small \textcolor{cvgray}{\textit{简历}}} \\[0pt]\testline
         \\[0pt]\testline
         % {\faPhone\abcvHeaderIconSep\abcvHeaderItemSty{\@phone}}\\[0pt]\testline
         {\abcvHeaderItemSty{\faEnvelopeO\abcvHeaderIconSep}\href{mailto:\@email}{\abcvHeaderItemSty{\@email}}} %\\[0pt]\testline
