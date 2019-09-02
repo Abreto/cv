@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{abresume}[2019/05/07 v0.1 abResume LaTeX class]
 
-\LoadClass[a4paper,10.5pt,oneside]{ctexart}
+\LoadClass[a4paper,10pt,oneside,fontset=mac]{ctexart}
 \RequirePackage[left=0.75in, right=0.75in, bottom=1in, top=1in]{geometry}
 
 \DeclareOption{withphoto}{\def\@withphoto{}}
@@ -37,6 +37,9 @@
 \setmainfont{Palatino}[
     SmallCapsFont={Palatino SC}
 ]
+
+% Hiragino Sans GB W6, Kaiti SC
+\setCJKmainfont[BoldFont=PingFang SC Semibold, ItalicFont=PingFang SC Light]{PingFang SC Regular}
 
 % \RequirePackage{pxfonts}
 % \RequirePackage{sourcecodepro}
@@ -137,9 +140,10 @@
 
 \def\sectionskip{\medskip}
 \def\sectionlineskip{\medskip}
+\newCJKfontfamily\cvsectionfont{PingFang SC Medium}
 \newcommand{\cvsection}[1]{
     \sectionskip
-    {\Large \textsc{\abcvBlue{#1}}}
+    {\Large \cvsectionfont {\abcvBlue{#1}}}
     \nopagebreak\sectionlineskip
     \abcvBlue{\hrule} % Horizontal line
     \nopagebreak
