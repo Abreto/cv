@@ -119,7 +119,7 @@
                 % }
                 }
             } \\[1pt]\testline
-        {\small \textcolor{cvgray}{\textit{简历}}} \\[0pt]\testline
+        {\small \textcolor{cvgray}{\textit{个人简历}}} \\[0pt]\testline
         \\[0pt]\testline
         % {\faPhone\abcvHeaderIconSep\abcvHeaderItemSty{\@phone}}\\[0pt]\testline
         {\abcvHeaderItemSty{\faEnvelopeO\abcvHeaderIconSep}\href{mailto:\@email}{\abcvHeaderItemSty{\@email}}} %\\[0pt]\testline
