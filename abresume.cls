@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{abresume}[2019/05/07 v0.1 abResume LaTeX class]
 
-\LoadClass[a4paper,10.5pt,oneside]{article}
+\LoadClass[a4paper,10.5pt,oneside]{ctexart}
 \RequirePackage[left=0.75in, right=0.75in, bottom=1in, top=1in]{geometry}
 
 \DeclareOption{withphoto}{\def\@withphoto{}}
