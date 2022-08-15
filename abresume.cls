@@ -227,6 +227,7 @@
 \newcommand{\abcvRoleSty}[1]{\textit{#1}}
 \newenvironment{projitem}[4] % Project name, Role[, start, end]
 {
+    % \par\nobreak\vfil\penalty0\vfilneg\vtop\bgroup
     \textbf{#1} \\
     \hspace*{1em} \abcvRoleSty{#2} \hfill \textit{#3}\ifthenelse{\equal{#4}{}}{}{~-~\textit{#4}} \\[1pt]
     \vspace*{-1.5em}
@@ -234,4 +235,5 @@
 }
 {
     \end{cvlist}
+    % \par\xdef\tpd{\the\prevdepth}\egroup\prevdepth=\tpd
 }
